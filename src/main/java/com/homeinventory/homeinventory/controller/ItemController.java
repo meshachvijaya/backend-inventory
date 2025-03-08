@@ -25,8 +25,8 @@ public class ItemController {
     }
 
     @PutMapping("/{id}")
-    public Item updateItem(@PathVariable Long id, @RequestBody Item item) {
-        return itemService.updateItem(id, item);
+    public Item updateItem(@PathVariable Long id, @RequestBody Item updatedItem) {
+        return itemService.updateItem(id, updatedItem);
     }
 
     @DeleteMapping("/{id}")
@@ -37,6 +37,11 @@ public class ItemController {
     @DeleteMapping("/bulk")
         public void bulkDeleteItems(@RequestBody List<Long> ids) {
             itemService.bulkDeleteItems(ids);
+    }
+
+    @GetMapping("/{id}")
+    public Item getItemById(@PathVariable Long id) {
+        return itemService.getItemById(id);
     }
 
 }
